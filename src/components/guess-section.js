@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import GuessForm from './guess-form';
 
@@ -8,7 +8,7 @@ export default function GuessSection(props) {
     return (
         <section>
             <h2 id="feedback">{props.feedback}</h2>
-            <GuessForm />
+            <GuessForm handleGuessButton={props.handleGuessButton} value={props.value} capturedGuess={props.capturedGuess} />
         </section>
     );
 }
