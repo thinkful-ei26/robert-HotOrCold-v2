@@ -4,7 +4,7 @@ import Header from './header';
 import GuessSection from './guess-section';
 import GuessCount  from './guess-count';
 import GuessList from './guess-list';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators } from './actions';
 
 export default class Game extends React.Component {
     constructor(props){
@@ -30,17 +30,13 @@ export default class Game extends React.Component {
         const distance = Math.abs(this.state.currentSolution-this.state.currentGuess)
         if(distance === 0) {
             this.setState({currentFeedback: this.state.feedbackOptions[5]})
-        }
-        if(distance <= 10) {
+        } else if(distance <= 10) {
             this.setState({currentFeedback: this.state.feedbackOptions[4]})
-        }
-        if(distance > 10 && distance <= 20) {
+        } else if(distance <= 20) {
             this.setState({currentFeedback: this.state.feedbackOptions[3]})
-        }
-        if(distance > 20 && distance <= 30) {
+        } else if(distance <= 30) {
             this.setState({currentFeedback: this.state.feedbackOptions[2]})
-        }
-        if(distance > 30) {
+        } else {
             this.setState({currentFeedback: this.state.feedbackOptions[1]})
         }
     }
