@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { USER_GUESS } from '../actions';
 
 import './guess-form.css';
 
-export default function GuessForm(props) {
+export function GuessForm(props) {
     return (
         <form onSubmit={props.handleGuessButton} >
             <input type="text" name="userGuess" id="userGuess"
